@@ -185,8 +185,7 @@ export default {
   },
   methods: {
     async handleLogout() {
-      await Auth.logout().then(() => {
-        this.$store.dispatch('logout')
+      this.$store.dispatch('logout').then(() => {
         this.$router.push('/login')
       })
     },

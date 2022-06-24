@@ -10,12 +10,12 @@ export default {
     return http.get(`${resource}${paramsString}`)
   },
 
-  // get(uuid) {
-  //   return http.get(`${resource}/${uuid}`)
-  // },
-  // update(ability, uuid) {
-  //   return http.put(`${resource}/${uuid}`, ability)
-  // },
+  get(uuid) {
+    return http.get(`${resource}/${uuid}`)
+  },
+  update(ability, uuid) {
+    return http.put(`${resource}/${uuid}`, ability)
+  },
   add(ability) {
     return http.post(`${resource}`, ability)
   },

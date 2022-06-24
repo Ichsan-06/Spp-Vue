@@ -188,14 +188,12 @@ export default {
   methods: {
     async handleSubmitForm() {
       this.isLoading = true
-      await Auth.login(this.forms).then(res => {
-        const { token } = res.data
-        const { user } = res.data
-        this.$store.dispatch('login', { token, user })
+      this.$store.dispatch('login', this.forms).then(() => {
+
         this.$router.push('/dashboard')
-      }).catch(err => {
+      }).catch((err) => {
+        console.log(err);
         this.isLoading = false
-        console.log(err)
       })
     },
   },

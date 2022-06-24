@@ -97,8 +97,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  const user = localStorage.getItem('user');
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters.isAuthenticated) {
+    if (user) {
       next()
     } else {
       next('/login')
@@ -109,9 +110,9 @@ router.beforeEach((to, from, next) => {
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(`Hello${store.getters.isAuthenticated}`)
+  const user = localStorage.getItem('user');
   if (to.matched.some(record => record.meta.guest)) {
-    if (store.getters.isAuthenticated) {
+    if (user) {
       next('/dashboard')
 
       return

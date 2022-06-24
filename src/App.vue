@@ -1,7 +1,9 @@
 <template>
   <component :is="resolveLayout">
     <router-view></router-view>
+    <SnackbarGlobal/>
   </component>
+
 </template>
 
 <script>
@@ -9,11 +11,13 @@ import { computed } from '@vue/composition-api'
 import { useRouter } from '@/utils'
 import LayoutBlank from '@/layouts/Blank.vue'
 import LayoutContent from '@/layouts/Content.vue'
+import SnackbarGlobal from './views/components/SnackbarGlobal'
 
 export default {
   components: {
     LayoutBlank,
     LayoutContent,
+    SnackbarGlobal,
   },
   setup() {
     const { route } = useRouter()
@@ -31,5 +35,8 @@ export default {
       resolveLayout,
     }
   },
+  mounted() {
+
+},
 }
 </script>
